@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register Test</title>
+</head>
+
+<body>
+
+<h2>Register User</h2>
+
+<input id="username" placeholder="username"><br><br>
+<input id="password" placeholder="password" type="password"><br><br>
+<input id="email" placeholder="email"><br><br>
+
+<button onclick="register()">Register</button>
+
+<script>
+function register() {
+    // Get values from inputs
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Simple frontend validation
+    if (!username || !email || !password) {
+        alert("Please fill in all fields: username, email, and password.");
+        return;
+    }
+
+    // Send POST request to Django API
+    fetch("http://127.0.0.1:8000/api/auth/register/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, email, password })
+    })
+    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+    .then(res => {
+        if (res.status === 200 || res.status === 201) {
+            alert("Success: " + res.body.message);
+        } else {
+            alert("Error: " + (res.body.error || "Something went wrong"));
+        }
+    })
+    .catch(error => {
+        console.error("Network Error:", error);
+        alert("Network Error. Check console for details.");
+    });
+}
+</script>
+
+</body>
+</html>

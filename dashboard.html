@@ -7,28 +7,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Dashboard</h1>
-    <button id="logoutBtn">Logout</button>
+  <div class="dashboard-container">
 
-    <h2>Courses</h2>
-    <form id="courseForm">
-      <input type="text" id="courseName" placeholder="Course Name" required>
-      <input type="text" id="courseCode" placeholder="Course Code">
-      <button type="submit">Add Course</button>
-    </form>
-    <ul id="courseList"></ul>
+    <!-- Header -->
+    <header class="dashboard-header">
+      <h1>Welcome to Your Study Dashboard</h1>
+      <button id="logoutBtn">Logout</button>
+    </header>
 
-    <h2>Study Plans</h2>
-    <form id="studyPlanForm">
-      <input type="text" id="planTitle" placeholder="Plan Title" required>
-      <input type="date" id="planDate" required>
-      <button type="submit">Add Study Plan</button>
-    </form>
-    <ul id="studyPlanList"></ul>
+    <!-- Add Course/Plan Form -->
+    <section class="add-section">
+      <h2>Add New Study Plan</h2>
+      <form id="addPlanForm">
+        <input type="text" id="courseTitle" placeholder="Course Title" required>
+        <input type="text" id="planTitle" placeholder="Plan/Task Title" required>
+        <input type="date" id="planDate" required>
+        <button type="submit">Add Plan</button>
+      </form>
+      <div id="addMessage"></div>
+    </section>
+
+    <!-- Plans Display -->
+    <section class="plans-section">
+      <h2>Your Study Plans</h2>
+      <div id="plansContainer">
+        <!-- Dynamically added cards will appear here -->
+      </div>
+    </section>
 
   </div>
 
-  <script src="js/main.js"></script>
+ 
+
+  <script src="main.js"></script>
+
+  
 </body>
 </html>
