@@ -1,21 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Planner - Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <div class="dashboard-container">
-
-    <!-- Header -->
     <header class="dashboard-header">
-      <h1>Welcome to Your Study Dashboard</h1>
+      <h1>Study Dashboard</h1>
       <button id="logoutBtn">Logout</button>
     </header>
 
-    <!-- Add Course/Plan Form -->
     <section class="add-section">
       <h2>Add New Study Plan</h2>
       <form id="addPlanForm">
@@ -27,20 +27,14 @@
       <div id="addMessage"></div>
     </section>
 
-    <!-- Plans Display -->
     <section class="plans-section">
       <h2>Your Study Plans</h2>
       <div id="plansContainer">
-        <!-- Dynamically added cards will appear here -->
+        <!-- Dynamic cards -->
       </div>
     </section>
-
   </div>
 
- 
-
-  <script src="main.js"></script>
-
-  
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

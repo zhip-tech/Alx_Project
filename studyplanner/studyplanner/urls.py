@@ -19,7 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # All APIs
-    path('api/', include('planner.urls')),
+    path('', include('planner.urls')),  # all frontend & API routes
 ]
